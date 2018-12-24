@@ -26,12 +26,11 @@ import com.s3s.ssm.service.IReportService;
 
 @Configuration
 public class ReportHessanConfig {
-  private static final String SERVER_URL = "http://localhost:8081";
 
   @Bean(name = "reportService")
   public HessianProxyFactoryBean hessianReportProxyFactoryBean() {
     HessianProxyFactoryBean bean = new HessianProxyFactoryBean();
-    bean.setServiceUrl(SERVER_URL + "/ReportService");
+    bean.setServiceUrl(ReportServiceUrlProvider.getCoreServiceUrl() + "/ReportService");
     bean.setServiceInterface(IReportService.class);
     return bean;
   }
@@ -39,7 +38,7 @@ public class ReportHessanConfig {
   @Bean(name = "productService")
   public HessianProxyFactoryBean hessianProductProxyFactoryBean() {
     HessianProxyFactoryBean bean = new HessianProxyFactoryBean();
-    bean.setServiceUrl(SERVER_URL + "/ProductService");
+    bean.setServiceUrl(ReportServiceUrlProvider.getCatalogServiceUrl() + "/ProductService");
     bean.setServiceInterface(IProductService.class);
     return bean;
   }
@@ -47,7 +46,7 @@ public class ReportHessanConfig {
   @Bean(name = "foodTableService")
   public HessianProxyFactoryBean hessianFoodTableProxyFactoryBean() {
     HessianProxyFactoryBean bean = new HessianProxyFactoryBean();
-    bean.setServiceUrl(SERVER_URL + "/FoodTableService");
+    bean.setServiceUrl(ReportServiceUrlProvider.getCatalogServiceUrl() + "/FoodTableService");
     bean.setServiceInterface(IFoodTableService.class);
     return bean;
   }

@@ -25,7 +25,6 @@
     	<spring.version>4.0.6.RELEASE</spring.version>
     	<jsefa.version>1.1.1.RELEASE</jsefa.version>
 		<myMavenRepo.read.url>https://mymavenrepo.com/repo/0gYeR1uVbGBd8IBUlAOb/</myMavenRepo.read.url>
-		<myMavenRepo.write.url>https://mymavenrepo.com/repo/EsiHd95I3nhSKhiViDip/</myMavenRepo.write.url>
 	</properties>
 	
 	<build>
@@ -115,13 +114,10 @@
 	</dependencies>
 	
 	<distributionManagement>
-        <repository>
-            <id>myMavenRepo.write</id>
-            <url>${myMavenRepo.write.url}</url>
-        </repository>
-        <snapshotRepository>
-            <id>myMavenRepo.write</id>
-            <url>${myMavenRepo.write.url}</url>
-        </snapshotRepository>
-    </distributionManagement>
+	    <repository>
+	      <id>ssm</id>
+	      <name>Internal Snapshot Repository</name>
+	      <url>http://52.193.209.175/repository/snapshots</url>
+	    </repository>
+	</distributionManagement>
 </project>
